@@ -9,8 +9,6 @@ import java.util.Map;
 public class ChatServer extends UnicastRemoteObject implements ChatServerInterface {
     private Map<String, ChatClientInterface> users = new HashMap<>(); // username -> client
 
-
-
     protected ChatServer() throws RemoteException {
         super();
     }
@@ -50,10 +48,9 @@ public class ChatServer extends UnicastRemoteObject implements ChatServerInterfa
         return a;
     }
 
-
     public void disconnectUser(String username)throws RemoteException{
         users.remove(username);
-        broadcastMessage("", username+" entrou na sala");
+        broadcastMessage("", username+" saiu na sala");
     }
         
     public static void main(String[] args) {

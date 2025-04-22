@@ -34,17 +34,18 @@ public class ChatClient extends UnicastRemoteObject implements ChatClientInterfa
                 System.out.print(">>> "); 
                 message = scanner.nextLine(); 
                 this.server.sendPrivateMessage(this.username, username_receiver, message);
-            }
-            if(message.toUpperCase().equals("LIST")){
-                List<String> lista = this.server.getOnlineUsers();
-                System.out.println("<<<<<<<<<<<<<<<<<<<< ONLINE USERS >>>>>>>>>>>>>>>>>>>>");
+            }else{ 
+                if(message.toUpperCase().equals("LIST")){
+                    List<String> lista = this.server.getOnlineUsers();
+                    System.out.println("<<<<<<<<<<<<<<<<<<<< ONLINE USERS >>>>>>>>>>>>>>>>>>>>");
                 for(String user: lista){
                     System.out.println(user);
                 }
-                System.out.println(">>> ");
-            }else{
-                this.server.broadcastMessage(this.username, message);
+                }else{
+                    this.server.broadcastMessage(this.username, message);
+                }
             }
+           
         }
     }
     
