@@ -1,4 +1,4 @@
-package Chat_Sistemas_Distribuidos;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.LocateRegistry;
