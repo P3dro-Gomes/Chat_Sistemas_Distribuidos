@@ -31,15 +31,6 @@ public class ChatServer extends UnicastRemoteObject implements ChatServerInterfa
             String username = entry.getKey();
             ChatClientInterface client = entry.getValue();
 
-
-            // {
-            //     "batata":10, entry 
-            //     "feijao":10,
-            //     "picles":10,
-            //     "cebola":10
-            // }
-
-
             if (!username.equals(sender)) {
                 client.receiveMessage(sender, message);
             }
